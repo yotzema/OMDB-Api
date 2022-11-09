@@ -1,0 +1,21 @@
+<div class="table-responsive">
+  <table class="table align-items-center table-flush">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Year</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let film of films" >
+        <td>{{ film.ID }}</td>
+        <td>{{ film.Title }}</td>
+        <td>{{ film.Year }}</td>
+        <td>{{ film.Rating }}</td> 
+      </tr>
+    </tbody>
+  </table>
+</div> 
+
