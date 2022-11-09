@@ -16,7 +16,29 @@ export class HomeComponent implements OnInit,OnDestroy {
 
   films: IFilm[];
 
+  filteredFilms: IFilm[] = [];
+
+
   public data: any;
+
+  private _listFilter: string = '';
+  
+  get listFilter(): string {
+    return this._listFilter;
+  }
+
+  set listFilter(value: string) {
+    this._listFilter = value;
+    console.log('In setter:', value);
+    this.filteredFilms = this.performFilter(value);
+  }
+
+  performFilter(filterBy: string): IFilm[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.films.filter((film: IFilm) =>
+      film.Title.toLocaleLowerCase().includes(filterBy));
+  }
+
 
   constructor(private filmService: FilmService) {  }
 
